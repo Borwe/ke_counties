@@ -22,7 +22,7 @@ modularity.mixedJavaRelease 8
 publishing {
     publications {
         maven(MavenPublication) {
-            groupId 'com.borwe.ke_counties'
+            groupId 'io.github.borwe'
             artifactId 'ke_counties'
             version '1.0-SNAPSHOT' 
             from components.java

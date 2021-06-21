@@ -14,12 +14,12 @@
  * limitations under the License.
  */
 
-module com.borwe.ke_counties {
+module io.github.borwe.ke_counties {
 	requires com.fasterxml.jackson.annotation;
 	requires com.fasterxml.jackson.core;
 	requires com.fasterxml.jackson.databind;
 	requires transitive io.reactivex.rxjava3;
 	requires transitive org.reactivestreams;
 
-	exports com.borwe.ke_counties;
+	exports io.github.borwe.ke_counties;
 }
