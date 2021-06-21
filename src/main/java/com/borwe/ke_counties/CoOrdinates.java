@@ -72,4 +72,9 @@ class CoOrdinates {
 			this.lon = lon;
 		}
 	}
+
+	@Override
+	public String toString() {
+		return "CoOrdinates{" + "latitude=" + latitude + ", longitude=" + longitude + '}';
+	}
 }

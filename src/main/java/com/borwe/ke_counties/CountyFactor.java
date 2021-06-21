@@ -21,6 +21,7 @@ import com.fasterxml.jackson.databind.node.ArrayNode;
 import io.reactivex.rxjava3.core.BackpressureStrategy;
 import io.reactivex.rxjava3.core.Flowable;
 import io.reactivex.rxjava3.core.Maybe;
+import io.reactivex.rxjava3.core.Single;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 import java.io.IOException;
 import java.io.InputStream;
@@ -73,16 +74,16 @@ public class CountyFactor {
 
 	private static Flowable<CoOrdinates> createCoordinatesFroCounty(JsonNode node){
 		return Flowable.create(emitter->{
-			ArrayNode cods=(ArrayNode) node.get("coordinates");
+			ArrayNode cods=(ArrayNode) node.get("coordinates").get(0);
 			for(JsonNode nd:cods){
 				emitter.onNext(nd);
 			}
 			emitter.onComplete();
 		}, BackpressureStrategy.BUFFER)
 		.observeOn(Schedulers.computation())
-		.flatMapMaybe(nd->{
+		.flatMapSingle(nd->{
 			ArrayNode tmp=(ArrayNode) nd;
-			return Maybe.create(emitter->{
+			return Single.create(emitter->{
 				CoOrdinates.Builder builder=new CoOrdinates.Builder();
 				builder.setLongitude(tmp.get(0).asDouble());
 				builder.setLatitude(tmp.get(0).asDouble());

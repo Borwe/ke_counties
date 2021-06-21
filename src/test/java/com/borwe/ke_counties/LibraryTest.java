@@ -21,7 +21,7 @@ class LibraryTest {
 	void testCountiesHaveCoOrdnites() throws IOException{
 		Long coordinates=CountyFactor.getCounties().firstElement().map(county->{
 			return county.getCoOrdinates();
-		}).count().blockingGet();
-		assertTrue(coordinates>0L);
+		}).blockingGet().count().blockingGet();
+		assertTrue(coordinates>3L);
 	}
 }
