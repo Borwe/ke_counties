@@ -19,4 +19,7 @@ module com.borwe.ke_counties {
 	requires com.fasterxml.jackson.core;
 	requires com.fasterxml.jackson.databind;
 	requires transitive io.reactivex.rxjava3;
+	requires transitive org.reactivestreams;
+
+	exports com.borwe.ke_counties;
 }
