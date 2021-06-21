@@ -11,6 +11,7 @@ plugins {
     id 'java-library'
 	id 'org.javamodularity.moduleplugin' version '1.8.6'
 	id 'maven-publish'
+	id 'idea'
 }
 
 sourceCompatibility=11
@@ -46,6 +47,8 @@ dependencies {
 	// Jacksonxml
 	implementation 'com.fasterxml.jackson.core:jackson-databind:2.12.3'
 
+	//rx java
+	api 'io.reactivex.rxjava3:rxjava:3.0.12'
 }
 
 tasks.named('test') {
